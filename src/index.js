@@ -1,3 +1,4 @@
+/* eslint-disable */
 const createApp = require('./app');
 const enableDestroy = require('server-destroy');
 const BPromise = require('bluebird');

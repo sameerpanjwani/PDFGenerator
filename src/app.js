@@ -1,3 +1,4 @@
+/* eslint-disable */
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -19,8 +20,8 @@ function createApp() {
   // This is needed to be able to use req.ip or req.secure
   app.enable('trust proxy', 1);
   app.disable('x-powered-by');
-  app.use(bugsnag.requestHandler);
-  app.use(bugsnag.errorHandler);
+ // app.use(bugsnag.requestHandler);
+ // app.use(bugsnag.errorHandler);
 
   if (config.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
