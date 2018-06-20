@@ -137,6 +137,8 @@ async function scrollPage(page) {
     });
 }
 
+
+
 function logOpts(opts) {
     const supressedOpts = _.cloneDeep(opts);
     if (opts.html) {
