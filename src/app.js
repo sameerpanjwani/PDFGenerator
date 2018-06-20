@@ -9,6 +9,9 @@ const errorLogger = require('./middleware/error-logger');
 const requireHttps = require('./middleware/require-https');
 const createRouter = require('./router');
 const config = require('./config');
+const bugsnag = require('bugsnag');
+
+bugsnag.register('5e8dbba1fc4504ecfd403b5d11249544');
 
 function createApp() {
   const app = express();
@@ -16,6 +19,8 @@ function createApp() {
   // This is needed to be able to use req.ip or req.secure
   app.enable('trust proxy', 1);
   app.disable('x-powered-by');
+  app.use(bugsnag.requestHandler);
+  app.use(bugsnag.errorHandler);
 
   if (config.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
