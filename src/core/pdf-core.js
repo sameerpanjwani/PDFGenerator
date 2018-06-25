@@ -7,8 +7,6 @@ const logger = require('../util/logger')(__filename);
 const request = require('request')
 let imgData = "";
 
-
-
 async function render(_opts = {}) {
         const opts = _.merge({
         cookies: [],
