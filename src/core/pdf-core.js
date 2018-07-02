@@ -51,7 +51,7 @@ async function render(_opts = {}) {
         console.log('Set browser viewport.. 1920');
         console.log(opts);
 
-        var buf = Buffer.from(opts.url, 'base64');
+        var buf = decodeURIComponent(opts.url);
         console.log('URL decoded');
 
 
