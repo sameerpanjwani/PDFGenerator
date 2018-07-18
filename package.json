@@ -36,6 +36,7 @@
     "server-destroy": "^1.0.1",
     "winston": "^2.3.1",
     "aws-sdk": "^2.276.1",
+    "node-uuid": "^1.4.8"
   },
   "devDependencies": {
     "chai": "^4.1.2",
