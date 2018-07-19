@@ -12,6 +12,7 @@ const createRouter = require('./router');
 const config = require('./config');
 const bugsnag = require('bugsnag');
 
+require('events').EventEmitter.defaultMaxListeners = 10;
 bugsnag.register('5e8dbba1fc4504ecfd403b5d11249544');
 
 function createApp() {
