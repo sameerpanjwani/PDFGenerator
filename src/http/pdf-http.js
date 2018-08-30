@@ -5,8 +5,8 @@ const pdfCore = require('../core/pdf-core');
 
 var AWS = require('aws-sdk');
 var uuid = require('node-uuid');
-var BucketName = 'mondovo-pdf';
-var PublicURL = "https://s3.ap-south-1.amazonaws.com/" + BucketName + "/"
+var BucketName = 'mondovo-pdf-downloads';
+var PublicURL = "https://s3.us-east-1.amazonaws.com/" + BucketName + "/";
 AWS.config.loadFromPath('config.json');
 
 const getRender = ex.createRoute((req, res) => {
