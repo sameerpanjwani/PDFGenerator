@@ -95,6 +95,7 @@ async function render(_opts = {}) {
         logger.error(`Error when rendering page: ${err}`);
         logger.error(err.stack);
         throw err;
+
     } finally {
         logger.info('Closing browser..');
         if (!config.DEBUG_MODE) {
