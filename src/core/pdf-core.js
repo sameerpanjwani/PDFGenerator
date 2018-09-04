@@ -48,11 +48,11 @@ async function render(_opts = {}) {
     let data;
     try {
 
-        console.log('Set browser viewport.. 1920');
-        console.log(opts);
+        //console.log('Set browser viewport.. 1920');
+        //console.log(opts);
 
         var buf = decodeURIComponent(opts.url);
-        console.log('URL decoded');
+        //console.log('URL decoded');
 
 
         request.get({url : opts.logo_url, encoding: null}, (err, res, body) => {
@@ -64,7 +64,7 @@ async function render(_opts = {}) {
             }
         });
 
-        await page.goto(buf.toString());
+        await page.goto(buf.toString(), {waitUntil: 'networkidle2'});
         await page.setViewport(
                 {
                         width: opts.width,
@@ -73,7 +73,7 @@ async function render(_opts = {}) {
                         deviceScaleFactor: 60
                 }
         );
-        await page.waitFor(opts.waitFor);
+        //await page.waitFor(opts.waitFor);
         data = await page.pdf({
             format: opts.pageType,
             width: opts.width,
