@@ -14,7 +14,7 @@
   "author": "Edwin F Sturt",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.307.0",
+    "aws-sdk": "^2.308.0",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.2",
     "bugsnag": "^2.4.2",
