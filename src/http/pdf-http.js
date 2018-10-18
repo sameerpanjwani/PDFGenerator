@@ -31,6 +31,7 @@ const getRender = ex.createRoute((req, res) => {
                 };
                 s3bucket.upload(params, function (err, data) {
                     if (err) {
+                        console.log(err, data);
                         logger.info('Aws Error DEBUG:' + err);
                     } else {
                         result = {
