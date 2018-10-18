@@ -11,7 +11,7 @@ AWS.config.loadFromPath('config.json');
 
 const getRender = ex.createRoute((req, res) => {
     console.log('Here 123');
-    res.send({'status': '200', 'TEST': 'Test'});
+    return res.send({'status': '200', 'TEST': 'Test'});
     const opts = getOptsFromQuery(req.query);
     return pdfCore.render(opts)
         .then((data) => {
