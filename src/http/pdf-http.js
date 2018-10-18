@@ -10,47 +10,40 @@ var PublicURL = "https://s3.us-east-1.amazonaws.com/" + BucketName + "/";
 AWS.config.loadFromPath('config.json');
 
 const getRender = ex.createRoute((req, res) => {
-    console.log('Here 567');
     const opts = getOptsFromQuery(req.query);
-    try {
-        return pdfCore.render(opts)
-            .then((data) => {
+    return pdfCore.render(opts)
+        .then((data) => {
 
-                var filename = uuid.v4() + ".pdf";
-                var result = {
-                    'data': 'success'
-                }
+            var filename = uuid.v4() + ".pdf";
+            var result = {
+                'data': 'success'
+            }
 
-                var file = data;
-                var s3bucket = new AWS.S3({params: {Bucket: BucketName}});
-                s3bucket.createBucket(function () {
-                    var params = {
-                        Key: filename,
-                        Body: file,
-                        ACL: 'public-read',
-                        ContentType: 'application/pdf'
-                    };
-                    s3bucket.upload(params, function (err, data) {
-                        if (err) {
-                            console.log(err, data);
-                            logger.info('Aws Error DEBUG:' + err);
-                        } else {
-                            result = {
-                                'status': '200',
-                                'pdf_location': PublicURL + filename
-                            }
-                            res.set('content-type', 'application/json');
-                            res.send(result);
+            var file = data;
+            var s3bucket = new AWS.S3({params: {Bucket: BucketName}});
+            s3bucket.createBucket(function () {
+                var params = {
+                    Key: filename,
+                    Body: file,
+                    ACL: 'public-read',
+                    ContentType: 'application/pdf'
+                };
+                s3bucket.upload(params, function (err, data) {
+                    if (err) {
+                        logger.info('Aws Error DEBUG:' + err);
+                    } else {
+                        result = {
+                            'status': '200',
+                            'pdf_location': PublicURL + filename
                         }
-                    });
+                        res.set('content-type', 'application/json');
+                        res.send(result);
+                    }
                 });
-
-
             });
-    }catch (e) {
-        console.log(e);
-        res.send({'error': 'Hnadled error'});
-    }
+
+
+        });
 });
 
 const postRender = ex.createRoute((req, res) => {

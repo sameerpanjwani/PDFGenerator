@@ -12,6 +12,7 @@ function createErrorResponder(_opts) {
   // 4 params needed for Express to know it's a error handler middleware
   // eslint-disable-next-line
   return function errorResponder(err, req, res, next) {
+      console.log(err);
     let message;
     let status = err.status ? err.status : 500;
     switch (err.type) {
