@@ -29,7 +29,7 @@ function createRouter() {
   const getRenderSchema = {
     query: renderQuerySchema,
     options: {
-      allowUnknownBody: false,
+      allowUnknownBody: true,
       allowUnknownQuery: true,
     },
   };
