@@ -10,6 +10,7 @@ var PublicURL = "https://s3.us-east-1.amazonaws.com/" + BucketName + "/";
 AWS.config.loadFromPath('config.json');
 
 const getRender = ex.createRoute((req, res) => {
+    console.log('Here 123');
     const opts = getOptsFromQuery(req.query);
     return pdfCore.render(opts)
         .then((data) => {
