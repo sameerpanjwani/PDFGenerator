@@ -37,7 +37,7 @@ async function render(_opts = {}) {
                 '--window-size: 1920,1080',
                 '--app-shell-host-window-size: "1920,1080"',
                 '--content-shell-host-window-size: "1920,1080"',
-
+                '--no-sandbox'
             ]
         }
     );
