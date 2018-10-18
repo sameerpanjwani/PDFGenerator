@@ -1,7 +1,7 @@
 /* eslint-disable no-process-env */
 // Env vars should be casted to correct types
 const config = {
-  PORT: 9000,
+  PORT: 9001,
   NODE_ENV: 'development',
   LOG_LEVEL: 'console',
   ALLOW_HTTP: 'true',
